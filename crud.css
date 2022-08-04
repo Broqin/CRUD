@@ -1,0 +1,70 @@
+body {
+    background: rgb(204, 204, 204);
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    padding-bottom: 0.5rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    padding-bottom: 0.5rem;
+}
+
+label > span {
+    display: block;
+}
+
+.actions {
+    width: 25%;
+    vertical-align: text-top;
+    text-align: right;
+}
+
+.actions a {
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.actions a:visited {
+    color: blue;
+}
+
+.actions a:hover {
+    background: rgb(204, 204, 204);
+}
+
+.container {
+    background: rgb(255, 255, 255);
+    margin: 0 auto;
+    max-width: 1320px;
+}
+
+table {
+    width: 100%;
+}
+
+thead {
+    display: none;
+}
+
+td {
+    border-bottom: 1px solid #999;
+}
+
+textarea {
+    width: 100%;
+}
+
+tr:hover {
+    box-shadow: 0 0.125rem 0.5rem 0.0625rem rgba(0, 0, 0, 0.33);
+}
+
+input[type="submit"] {
+    padding: 0.5rem;
+}

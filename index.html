@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>CRUD Application</title>
+    <link rel="stylesheet" href="crud.css">
+    <script type="text/javascript" src="crud.js"></script>
+    <!-- FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/cc21bbc1e8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Add a Note</h1>
+        <form id="to-do" name="to-do">
+            <label>
+                <span>Note:</span>
+                <textarea cols="30" rows="3" id="note" name="note" placeholder="I need to do..." required></textarea>
+            </label>
+            <input type="submit" value="Create">
+        </form>
+        <table id="notes">
+            <thead>
+                <tr>
+                    <th>Note</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>
