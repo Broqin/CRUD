@@ -84,6 +84,21 @@ form {
     margin: 0 auto;
 }
 
+form > div {
+    position: relative;
+}
+
+form > div > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem;
+    margin: 0;
+    pointer-events: none;
+    transition: opacity .1s, transform .1s, font .1s;
+    transform-origin: 0 0;
+}
+
 html {
     height: 100%;
     width: 100%;
@@ -96,7 +111,6 @@ h1 {
 }
 
 label {
-    display: block;
     margin-bottom: 0.5rem;
 }
 
@@ -124,15 +138,28 @@ td, th {
 }
 
 textarea {
+    border-radius: 0.25rem;
     transition: border 250ms;
     width: 100%;
     display: block;
     outline: 0;
-    padding: 1.5rem;
+    padding: 1rem;
+    resize: vertical;
 }
 
 textarea:focus {
     border-color: var(--primary-color);
+}
+
+textarea:focus + label,
+textarea:not(:placeholder-shown) + label {
+    opacity: .65;
+    transform: translateY(-1rem);
+    font-size: 0.75rem;
+}
+
+textarea::placeholder {
+    color: transparent;
 }
 
 tr:hover {
@@ -155,24 +182,4 @@ tr:hover {
 .actions button:hover {
     background: var(--primary-color);
     color: #fff;
-}
-
-.field {
-    position: relative;
-}
-
-.field label {
-    margin: 0;
-    padding: 0 1.5rem;
-    position: absolute;
-    top: calc(1.5rem + 1px);
-    left: 1px;
-    right: 0;
-    transition: all 250ms;
-}
-
-.field textarea:focus + label {
-    background: var(--primary-color);
-    color: #fff;
-    top: 1px;
 }
