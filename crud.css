@@ -23,6 +23,7 @@
     transform: translateX(-50%);
     text-align: center;
     visibility: hidden;
+    z-index: 1;
 }
 
 *[data-tooltip]:hover::before {
@@ -31,6 +32,11 @@
 
 :root {
     --primary-color: #F44;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
 }
 
 body {
@@ -46,6 +52,7 @@ button {
     background: var(--primary-color);
     border: 0 solid transparent;
     border-radius: 0.25rem;
+    color: #fff;
     cursor: pointer;
     line-height: 1rem;
     padding: 0.5rem;
@@ -62,6 +69,14 @@ textarea {
 
 button:hover {
     background: #D44;
+}
+
+footer {
+    text-align: center;;
+    position: fixed;
+    bottom: 0;
+    max-width: 1320px;
+    width: 100%;
 }
 
 form {
@@ -104,35 +119,60 @@ td {
     border-bottom: 1px solid #999;
 }
 
+td, th {
+    padding: 0.5rem;
+}
+
 textarea {
+    transition: border 250ms;
     width: 100%;
+    display: block;
+    outline: 0;
+    padding: 1.5rem;
+}
+
+textarea:focus {
+    border-color: var(--primary-color);
 }
 
 tr:hover {
     box-shadow: 0 0.125rem 0.5rem 0.0625rem rgba(0, 0, 0, 0.33);
 }
 
-td, th {
-    padding: 0.5rem;
-}
-
-textarea {
-    display: block;
-    outline: 0;
-    padding: 1rem;
-}
-
 .actions {
     vertical-align: text-top;
     text-align: right;
+    padding: 0;
 }
 
 .actions button {
     background: transparent;
+    color: var(--primary-color);
     margin: 0;
     position: relative;
 }
 
 .actions button:hover {
-    background: #DDD;
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.field {
+    position: relative;
+}
+
+.field label {
+    margin: 0;
+    padding: 0 1.5rem;
+    position: absolute;
+    top: calc(1.5rem + 1px);
+    left: 1px;
+    right: 0;
+    transition: all 250ms;
+}
+
+.field textarea:focus + label {
+    background: var(--primary-color);
+    color: #fff;
+    top: 1px;
 }

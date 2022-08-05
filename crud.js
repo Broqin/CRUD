@@ -1,65 +1,73 @@
-/*
-    1. remove
-*/
-
-let data = [
-    {
-        note: 'Buy eggs.'
-    }, {
-        note: 'Walk dog.'
-    }, {
-        note: 'Go to gym.'
-    }, {
-        note: 'Read a book.'
-    }, {
-        note: 'Pay bills.'
-    }
-];
-
 /* wait for DOM to load */
 document.addEventListener('DOMContentLoaded', (event) => {
-
     let tbl = document.querySelector("#notes");
-    let frag = "";
+    let data = [
+        {
+            "id": 0,
+            "note": "Buy eggs."
+        },
+        {
+            "id": 1,
+            "note": "Walk dog."
+        },
+        {
+            "id": 2,
+            "note": "Go to gym."
+        },
+        {
+            "id": 3,
+            "note": "Read a book."
+        },
+        {
+            "id": 4,
+            "note": "Pay bills."
+        }
+    ];
 
-    for (let i = 0, len = data.length; i < len; i++) {
-        frag += `
-            <tr>
-                <td>${data[i].note}</td>
-                <td class="actions">
-                    <button data-tooltip="Update"><i class="fa-solid fa-pen"></i></button><button data-tooltip="Delete"><i class="fa-solid fa-trash"></i></button>
-                </td>
-            </tr>
-        `;
-    }
+    display(data);
 
-    tbl.innerHTML = frag;
-
-    document.forms['to-do'].addEventListener('click', (event) => {
+    /* form event handling */
+    document.forms['todo'].addEventListener('submit', (event) => {
         event.preventDefault();
 
-        if(event.target.type === undefined) { return; }
+        let noteContent = document.querySelector('textarea').value;
 
-        console.log(event.target.type);
-
-        /* handle textarea */
-        if(event.target.type === 'textarea') {
-            console.log('textarea clicked');
-        }
-
-        /* handle submit */
-        if(event.target.type === 'submit') {
-            
-        }
+        data.push({"note": noteContent});
+        display(data);
     });
 
-    let realTable = document.querySelector('table');
-
+    /* table event handling */
     tbl.addEventListener('click', (event) => {
-        event.preventDefault();
+        event.stopPropagation();
 
-        //if(event.target.type === undefined) { return; }
+        let btn = event.target.closest('button');
 
-        console.log(event.target.tagName);
+        /* handle delete and update actions */
+        if(btn) {
+
+            if(btn.dataset.tooltip === 'Delete') {
+                console.log('delete requested');
+            }
+
+            if(btn.dataset.tooltip === 'Update') {
+                console.log('update requested');
+            }
+        }
     });
+
+    function display(x) {
+        let frag = "";
+    
+        for (let i = 0, len = x.length; i < len; i++) {
+            frag += `
+                <tr>
+                    <td>${x[i].note}</td>
+                    <td class="actions" data-id="${x[i].id}">
+                        <button data-tooltip="Update"><i class="fa-solid fa-pen"></i></button><button data-tooltip="Delete"><i class="fa-solid fa-trash"></i></button>
+                    </td>
+                </tr>
+            `;
+        }
+        tbl.innerHTML = frag;
+    }
 });

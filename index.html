@@ -12,9 +12,11 @@
 <body>
     <main>
         <h1>Create a Note</h1>
-        <form id="to-do" name="to-do">
-            <label for="note">Note:</label>
-            <textarea id="note" name="note" cols="30" rows="3"></textarea>
+        <form id="todo" name="todo">
+            <div class="field">
+                <textarea id="note" name="note" cols="30" rows="3"></textarea>
+                <label for="note">Note:</label>
+            </div>
             <button type="submit">Create</button>
         </form>
         <table id="notes">
@@ -28,6 +30,9 @@
             </tbody>
         </table>
     </main>
+    <footer>
+        <p>Project by <a href="https://twitter.com/Broqin">Scott Narup</a>.</p>
+    </footer>
 </body>
 
 </html>
