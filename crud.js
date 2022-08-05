@@ -23,7 +23,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
     let frag = "";
 
     for (let i = 0, len = data.length; i < len; i++) {
-        frag += `<tr><td>${data[i].note}</td><td class="actions"><a href="#" title="Update"><i class="fa-solid fa-pen"></i></a><a href="#" title="Delete"><i class="fa-solid fa-trash"></i></a></td></tr>`;
+        frag += `
+            <tr>
+                <td>${data[i].note}</td>
+                <td class="actions">
+                    <button data-tooltip="Update"><i class="fa-solid fa-pen"></i></button><button data-tooltip="Delete"><i class="fa-solid fa-trash"></i></button>
+                </td>
+            </tr>
+        `;
     }
 
     tbl.innerHTML = frag;

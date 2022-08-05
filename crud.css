@@ -1,23 +1,88 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #F44;
+}
+
 body {
     background: rgb(204, 204, 204);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+    font: 100%/1.5em sans-serif;
+    margin: 0 auto;
+    max-width: 1320px;
+    width: 100vw;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+    line-height: inherit;
+}
+
+button {
+    background: var(--primary-color);
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: background 250ms;
+}
+
+button:hover,
+.actions button:hover {
+    background: #D44;
 }
 
 form {
     width: 50%;
     margin: 0 auto;
-    padding-bottom: 0.5rem;
+}
+
+form button,
+form input,
+form textarea {
+    margin: 0 0 0.5rem 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
+    font-size: 2rem;
     text-align: center;
+    margin: 0 0 0.5rem 0;
 }
 
 label {
-    padding-bottom: 0.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
 }
 
 label > span {
     display: block;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 0.5rem;
+}
+
+textarea {
+    display: block;
+    outline: 0;
+    padding: 1rem;
 }
 
 .actions {
@@ -26,27 +91,48 @@ label > span {
     text-align: right;
 }
 
-.actions a {
-    border-radius: 1rem;
+.actions button {
+    background: transparent;
+    position: relative;
+}
+
+.actions button:hover {
+    background: #DDD;
+}
+
+.actions button:hover::before {
+    visibility: visible;
+}
+
+.actions button::after {
+    right: 50%;
+    transform: translateX(-50%);
+}
+
+.actions button::before {
+    background: #444;
+    border-radius: 0.25rem;
+    color: #fff;
+    content: attr(data-tooltip);
+    font-size: 0.80rem;
+    line-height: 1rem;
     padding: 0.5rem;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    visibility: hidden;
 }
 
-.actions a:visited {
-    color: blue;
-}
-
-.actions a:hover {
-    background: rgb(204, 204, 204);
-}
-
-.container {
+main {
     background: rgb(255, 255, 255);
-    margin: 0 auto;
-    max-width: 1320px;
+    padding: 0 1.5rem;
 }
 
 table {
     width: 100%;
+    margin-bottom: 1.5rem;
 }
 
 thead {
