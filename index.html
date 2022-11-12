@@ -2,28 +2,26 @@
 <html lang="en">
 
 <head>
-    <title>CRUD Application</title>
-    <link rel="stylesheet" href="crud.css">
-    <script type="text/javascript" src="crud.js"></script>
-    <!-- FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/cc21bbc1e8.js" crossorigin="anonymous"></script>
+    <title>Note Application</title>
+    <link rel="stylesheet" href="main.css">
+    <script type="text/javascript" src="main.js"></script>
 </head>
 
 <body>
+    <form id="note-form" name="note-form">
+        <textarea id="note-content" name="note-content" cols="30" rows="3" placeholder="Note"></textarea>
+        <label for="note-content">Note:</label>
+        <button type="submit">Create</button>
+    </form>
     <main>
-        <h1>Create a Note</h1>
-        <form id="todo" name="todo">
-            <div class="field">
-                <textarea id="note" name="note" cols="30" rows="3" placeholder="Note"></textarea>
-                <label for="note">Note:</label>
-            </div>
-            <button type="submit">Create</button>
-        </form>
+        <h1>Notes</h1>
         <table id="notes">
+            <caption>List of Notes</caption>
             <thead>
                 <tr>
-                    <th>Note</th>
-                    <th>Actions</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Note</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>

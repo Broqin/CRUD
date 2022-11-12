@@ -1,39 +1,39 @@
 /* wait for DOM to load */
 document.addEventListener('DOMContentLoaded', (event) => {
     let tbl = document.querySelector("#notes");
-    let data = [
+    let notes = [
         {
             "id": 0,
-            "note": "Buy eggs."
+            "content": "Buy eggs."
         },
         {
             "id": 1,
-            "note": "Walk dog."
+            "content": "Walk dog."
         },
         {
             "id": 2,
-            "note": "Go to gym."
+            "content": "Go to gym."
         },
         {
             "id": 3,
-            "note": "Read a book."
+            "content": "Read a book."
         },
         {
             "id": 4,
-            "note": "Pay bills."
+            "content": "Pay bills."
         }
     ];
 
-    display(data);
+    display(notes);
 
     /* form event handling */
-    document.forms['todo'].addEventListener('submit', (event) => {
+    document.forms['note-form'].addEventListener('submit', (event) => {
         event.preventDefault();
 
         let noteContent = document.querySelector('textarea').value;
 
-        data.push({"note": noteContent});
-        display(data);
+        notes.push({"content": noteContent});
+        display(notes);
     });
 
     /* table event handling */
@@ -59,11 +59,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
         let frag = "";
     
         for (let i = 0, len = x.length; i < len; i++) {
+            const note = notes[i];
             frag += `
-                <tr>
-                    <td>${x[i].note}</td>
-                    <td class="actions" data-id="${x[i].id}">
-                        <button data-tooltip="Update"><i class="fa-solid fa-pen"></i></button><button data-tooltip="Delete"><i class="fa-solid fa-trash"></i></button>
+                <tr id="note-${note.id}">
+                    <td scope="row">${note.id}
+                    <th scope="row">${note.content}</th>
+                    <td scope="row" class="actions">
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </td>
                 </tr>
             `;
