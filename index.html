@@ -3,14 +3,14 @@
 
 <head>
     <title>Note Application</title>
-    <link rel="stylesheet" href="main.css">
-    <script type="text/javascript" src="main.js"></script>
+    <link rel="stylesheet" href="./css/main.css">
+    <script type="module" src="./js/main.js"></script>
 </head>
 
 <body>
     <form id="note-form" name="note-form">
-        <textarea id="note-content" name="note-content" cols="30" rows="3" placeholder="Note"></textarea>
         <label for="note-content">Note:</label>
+        <textarea id="note-content" name="note-content" cols="30" rows="3" placeholder="Note"></textarea>
         <button type="submit">Create</button>
     </form>
     <main>
@@ -20,7 +20,7 @@
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Note</th>
+                    <th scope="col">Content</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>

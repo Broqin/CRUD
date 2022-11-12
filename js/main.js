@@ -1,6 +1,8 @@
+import { deleteNote } from "../module/note-delete.js";
+
 /* wait for DOM to load */
 document.addEventListener('DOMContentLoaded', (event) => {
-    let tbl = document.querySelector("#notes");
+    let tbl = document.querySelector("#notes tbody");
     let notes = [
         {
             "id": 0,
@@ -44,14 +46,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
         /* handle delete and update actions */
         if(btn) {
-
-            if(btn.dataset.tooltip === 'Delete') {
-                console.log('delete requested');
-            }
-
-            if(btn.dataset.tooltip === 'Update') {
-                console.log('update requested');
-            }
+            deleteNote(0);
         }
     });
 
