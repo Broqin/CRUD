@@ -1,34 +1,40 @@
-import { deleteNote } from "../module/note-delete.js";
-
 /* wait for DOM to load */
 document.addEventListener('DOMContentLoaded', (event) => {
+
+    const noteContent = document.querySelector("#note-content");
+    const saveButton = document.querySelector("#note-save");
+
     let tbl = document.querySelector("#notes tbody");
     let notes = [
         {
             "id": 0,
-            "content": "Buy eggs."
+            "content": "Buy eggs.",
+            "title": "Shopping"
         },
         {
             "id": 1,
-            "content": "Walk dog."
+            "content": "Walk dog.",
+            "title": "Fido"
         },
         {
             "id": 2,
-            "content": "Go to gym."
+            "content": "Go to gym.",
+            "title": "Health"
         },
         {
             "id": 3,
-            "content": "Read a book."
+            "content": "Read a book.",
+            "title": "Education"
         },
         {
             "id": 4,
-            "content": "Pay bills."
+            "content": "Pay bills.",
+            "title": "Tasks"
         }
     ];
 
     display(notes);
 
-    /* form event handling */
     document.forms['note-form'].addEventListener('submit', (event) => {
         event.preventDefault();
 
@@ -38,18 +44,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
         display(notes);
     });
 
-    /* table event handling */
-    tbl.addEventListener('click', (event) => {
-        event.stopPropagation();
-
-        let btn = event.target.closest('button');
-
-        /* handle delete and update actions */
-        if(btn) {
-            deleteNote(0);
-        }
-    });
-
     function display(x) {
         let frag = "";
     
@@ -57,9 +51,10 @@ document.addEventListener('DOMContentLoaded', (event) => {
             const note = notes[i];
             frag += `
                 <tr id="note-${note.id}">
-                    <td scope="row">${note.id}
-                    <th scope="row">${note.content}</th>
-                    <td scope="row" class="actions">
+                    <th scope="row">${note.id}</th>
+                    <td>${note.title}</th>
+                    <td class="actions">
+                        <button>View</button>
                         <button>Edit</button>
                         <button>Delete</button>
                     </td>
@@ -68,4 +63,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
         }
         tbl.innerHTML = frag;
     }
+
 });
