@@ -8,9 +8,10 @@
     --primary-color: hsla(0,100%,60%,1);
     --background-color: hsla(0,0%,100%,1);
     --font-color: hsla(0,0%,0%,1);
-    --white: hsla(0,0%,100%,1);
-    --black: hsla(0,0%,0%,1);
+    --white: 0, 0%;
+    --black: 0, 0%;
     --font-family: Arial, Helvetica, sans-serif;
+    --font-luminosity: 50%;
 }
 
 a {
@@ -21,8 +22,6 @@ a {
 body {
     background: var(--background-color);
     color: var(--font-color);
-    display: grid;
-    grid-template-columns: 1fr;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 100%;
     line-height: 1.5;
@@ -58,6 +57,12 @@ button:hover {
     background: hsla(0,100%,40%,1);
 }
 
+caption {
+    color: hsla(var(--black), 50%, 1);
+    font-size: .8rem;
+    text-align: left;
+}
+
 footer {
     text-align: center;;
     position: fixed;
@@ -67,6 +72,23 @@ footer {
 
 form {
     width: 50%;
+}
+
+form[name="theme"] {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: auto;
+}
+
+form[name="note-form"] {
+    display: none;
+    position: absolute;
+}
+
+form[name="note-form"] button {
+    width: 10rem;
+    justify-self: flex-end;
 }
 
 html {
@@ -90,18 +112,19 @@ table {
     margin-bottom: 1.5rem;
 }
 
-tbody th {
-    font-weight: normal;
+th {
+    font-size: .8rem;
+    color: hsla(0,0%,50%,1)
 }
 
-thead th,
-tbody td:first-child {
-    color: hsla(0,0%,50%,1)
+th:hover,
+tr:hover th {
+    color: hsla(var(--black), 0%, 1)
 }
 
 td, th {
     border-bottom: 1px solid #999;
-    padding: 0.5rem;
+    padding: .5rem;
 }
 
 th {
@@ -123,7 +146,7 @@ textarea:focus {
     border-color: var(--primary-color);
 }
 
-tr:hover {
+tbody tr:hover {
     box-shadow: 0 0.125rem 0.5rem 0.0625rem rgba(0, 0, 0, 0.33);
 }
 
@@ -131,4 +154,8 @@ td.actions {
     display: flex;
     gap: .5rem;
     justify-content: flex-end;
+}
+
+td.actions button {
+    margin: 0;
 }

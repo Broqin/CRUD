@@ -1,1 +1,1 @@
-CRUD Application.
+CRUD Application for Notes.

@@ -8,25 +8,30 @@
 </head>
 
 <body>
-    <form id="note-form" name="note-form">
-        <label for="note-content">Note:</label>
-        <textarea id="note-content" name="note-content" cols="30" rows="3" placeholder="Note"></textarea>
-        <button type="submit">Create</button>
-    </form>
     <main>
         <h1>Notes</h1>
+        <button id="note-create">Create</button>
+        <form id="note-form" name="note-form">
+            <label for="note-content">Note:</label>
+            <textarea id="note-content" name="note-content" cols="30" rows="3" placeholder="Note"></textarea>
+            <button id="note-save" type="submit">Save</button>
+        </form>
         <table id="notes">
             <caption>List of Notes</caption>
             <thead>
                 <tr>
                     <th scope="col">ID</th>
-                    <th scope="col">Content</th>
+                    <th scope="col">Title</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
             </tbody>
         </table>
+        <form name="theme" id="theme">
+            <label>Dark Theme</label>
+            <input type="checkbox">
+        </form>
     </main>
     <footer>
         <p>Project by <a href="https://twitter.com/Broqin">Scott Narup</a>.</p>
