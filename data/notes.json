@@ -1,22 +1,27 @@
 [
     {
         "id": 0,
-        "content": "Buy eggs."
+        "content": "Content's of 1st note.",
+        "title": "1st Note"
     },
     {
         "id": 1,
-        "content": "Walk dog."
+        "content": "Content's of 2nd note.",
+        "title": "2nd Note"
     },
     {
         "id": 2,
-        "content": "Go to gym."
+        "content": "Content's of 3rd note.",
+        "title": "3rd Note"
     },
     {
         "id": 3,
-        "content": "Read a book."
+        "content": "Content's of 4th note.",
+        "title": "4th Note"
     },
     {
         "id": 4,
-        "content": "Pay bills."
+        "content": "Content's of 5th note.",
+        "title": "5th Note"
     }
 ]
